@@ -4,14 +4,17 @@ import Layout from '../layouts/Layout.astro';
 import LinkedIn from '../icons/LinkedIn.astro';
 import GitHub from '../icons/GitHub.astro';
 import Mail from '../icons/Mail.astro';
+import BriefCase from '../icons/BriefCase.astro';
 import SocialPill from '../components/SocialPill.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
 ---
 
 <Layout
   title="Portfolio de Daniel Romero - Desarrollador y Programador Web y Movil con 3 anios de experiencia"
   description="Contrata a Daniel para crear tu aplicacion web o movil. Desarrollador Web y Movil. Especializado en crear aplicaciones unicas">
   <main>
-    <section class="w-full lg:w-[740px] mx-auto py-44">
+    <SectionContainer class="py-44 pb-22">
       <img
         class="rounded-full size-12 mb-4"
         src="https://media.licdn.com/dms/image/C4E03AQHT19fjVaAVuQ/profile-displayphoto-shrink_200_200/0/1577113326293?e=2147483647&v=beta&t=zXzadQvCfZIsCKrt3W76HzoorfGnFLky9EMlqYM-Vno"
@@ -49,6 +52,13 @@ import SocialPill from '../components/SocialPill.astro';
           danielromeroag@gmail.com
         </SocialPill>
       </nav>
-    </section>
+    </SectionContainer>
+    <SectionContainer id="experience">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+		<BriefCase class="size-8" />
+		Experiencia laboral
+	</h2>
+      <Experience />
+    </SectionContainer>
   </main>
 </Layout>

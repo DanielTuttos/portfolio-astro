@@ -1,26 +1,29 @@
 ---
 interface Props {
   title: string;
-  description: string;
+  subtitle: string;
+  descriptions: string[];
   date: string;
   link?: string;
 }
-const { date, title, description, link } = Astro.props;
+const { date, title, descriptions, link, subtitle } = Astro.props;
 ---
 
 <div
   class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
 </div>
-<time
-  class="mb-1 text-sm font-normal leading-none text-sky-300"
-  >{date}</time
->
+<time class="mb-1 text-sm font-normal leading-none text-sky-300">{date}</time>
 <h3 class="text-lg font-semibold text-yellow-200 mt-3">
   {title}
 </h3>
-<p class="mb-4 text-base font-normal text-gray-200 text-pretty">
-  {description}
-</p>
+<h5 class="py-3 leading-none text-red-100/90">{subtitle}</h5>
+{
+  descriptions.map((description) => (
+    <p class="mb-4 text-base font-normal text-gray-200 text-pretty">
+      {description}
+    </p>
+  ))
+}
 {
   link && (
     <a

@@ -1,6 +1,12 @@
 ---
 import Nextjs from '../icons/Nextjs.astro';
 import Tailwind from '../icons/Tailwind.astro';
+import React from '../icons/React.astro';
+import Vitejs from '../icons/Vitejs.astro';
+import JavaScript from '../icons/JavaScript.astro';
+import Threejs from '../icons/Threejs.astro';
+import Badge from './Badge.astro';
+
 const TAGS = {
   NEXT: {
     name: 'Next.js',
@@ -12,35 +18,79 @@ const TAGS = {
     class: 'bg-[#003159] text-white',
     icon: Tailwind,
   },
+  VITE: {
+    name: 'Vite.js',
+    class: 'bg-[#1B1B1F] text-white',
+    icon: Vitejs,
+  },
+  REACT: {
+    name: 'React.js',
+    class: 'bg-[#23272F] text-white',
+    icon: React,
+  },
+  JAVASCRIPT: {
+    name: 'JavaScript',
+    class: 'bg-[#000000] text-white',
+    icon: JavaScript,
+  },
+  THREEJS: {
+    name: 'Three.js',
+    class: 'bg-[#0073B4] text-white',
+    icon: Threejs,
+  },
 };
 const PROJECTS = [
   {
-    title: 'Project 1',
+    title: 'TicTacToe',
     description:
-      'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.',
-    link: '#',
-    github: '#',
-    image: 'https://via.placeholder.com/300x200',
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      'Proyecto desarrollado como practica utilizando React.js y Vite.js, donde se recrea toda la lógica del juego, se debe jugar con 2 personas y cada uno tendrá su turno. Este proyecto esta publicado en github pages y lo podrás revisar la demo con el botón de sitio web y el código fuente con el botón GitHub.',
+    link: 'https://danieltuttos.github.io/React-TicTacToe/',
+    github: 'https://github.com/DanielTuttos/React-TicTacToe',
+    image: '/projects/tictactoe.jpeg',
+    tags: [TAGS.REACT, TAGS.VITE, TAGS.JAVASCRIPT],
+  },
+  {
+    title: 'Minecraft clone',
+    description:
+      'Proyecto desarrollado como practica utilizando React.js y Vite.js, donde se recrea toda la lógica del juego, se debe jugar con 2 personas y cada uno tendrá su turno. Este proyecto esta publicado en github pages y lo podrás revisar la demo con el botón de sitio web y el código fuente con el botón GitHub.',
+    link: 'https://danieltuttos.github.io/Minecraft-clone-react/',
+    github: 'https://github.com/DanielTuttos/Minecraft-clone-react',
+    image: '/projects/minecraft-clone.jpeg',
+    tags: [TAGS.REACT, TAGS.VITE, TAGS.JAVASCRIPT, TAGS.THREEJS],
   },
 ];
 ---
 
 {
-  PROJECTS.map(({ title, description, tags, image }) => (
-    <article>
+  PROJECTS.map(({ title, description, tags, image, link, github }) => (
+    <article class="mb-20">
       <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
       <p class="text-lg mb-2 text-pretty">{description}</p>
       <ul class="flex gap-x-2 flex-row mb-4">
         {tags.map((tag) => (
           <li>
-            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
               <tag.icon class="size-4" />
               {tag.name}
             </span>
           </li>
         ))}
       </ul>
+      <div class="flex flex-row py-3 gap-x-2">
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener">
+          <Badge>Sitio web</Badge>
+        </a>
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener">
+          <Badge>GitHub</Badge>
+        </a>
+      </div>
       <img
         class="rounded shadow-2xl shadow-white/20 "
         src={image}

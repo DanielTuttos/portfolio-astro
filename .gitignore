@@ -3,6 +3,7 @@ dist/
 
 # generated types
 .astro/
+.firebase/danielromeroag/
 
 # dependencies
 node_modules/

@@ -5,7 +5,9 @@ import React from '../icons/React.astro';
 import Vitejs from '../icons/Vitejs.astro';
 import JavaScript from '../icons/JavaScript.astro';
 import Threejs from '../icons/Threejs.astro';
-import Badge from './Badge.astro';
+import LinkButton from './LinkButton.astro';
+import GitHub from '@/icons/GitHub.astro';
+import Web from '@/icons/Web.astro';
 
 const TAGS = {
   NEXT: {
@@ -52,7 +54,7 @@ const PROJECTS = [
   {
     title: 'Minecraft clone',
     description:
-      'Proyecto desarrollado como practica utilizando React.js y Vite.js, donde se recrea toda la lógica del juego, se debe jugar con 2 personas y cada uno tendrá su turno. Este proyecto esta publicado en github pages y lo podrás revisar la demo con el botón de sitio web y el código fuente con el botón GitHub.',
+      'Clone de el famoso juego MINECRAFT desarrollado para la web con React.js, Vite.js y Three.js para el manejo de 3d en la web. El juego es un clone con una de las funcionalidades básicas del juego original que es la creación de cubos con diferentes texturas. Solo esta recreada esa funcionalidad con un selector de texturas que funciona con las teclas numéricas del 1 al 5.',
     link: 'https://danieltuttos.github.io/Minecraft-clone-react/',
     github: 'https://github.com/DanielTuttos/Minecraft-clone-react',
     image: '/projects/minecraft-clone.jpeg',
@@ -61,41 +63,40 @@ const PROJECTS = [
 ];
 ---
 
-{
-  PROJECTS.map(({ title, description, tags, image, link, github }) => (
-    <article class="mb-20">
-      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-      <p class="text-lg mb-2 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row mb-4">
-        {tags.map((tag) => (
-          <li>
-            <span
-              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-              <tag.icon class="size-4" />
-              {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <div class="flex flex-row py-3 gap-x-2">
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener">
-          <Badge>Sitio web</Badge>
-        </a>
-        <a
-          href={github}
-          target="_blank"
-          rel="noopener">
-          <Badge>GitHub</Badge>
-        </a>
-      </div>
-      <img
-        class="rounded shadow-2xl shadow-white/20 "
-        src={image}
-        alt={`Captura de pantalla del proyecto ${title}`}
-      />
-    </article>
-  ))
-}
+<section class='flex flex-col gap-y-14 mb-10'>
+  {
+    PROJECTS.map(({ title, description, tags, image, link, github }) => (
+      <article>
+        <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+        <p class="text-lg mb-2 text-pretty">{description}</p>
+        <ul class="flex gap-x-2 flex-row mb-4">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <img
+          class="rounded shadow-2xl shadow-white/20 "
+          src={image}
+          alt={`Captura de pantalla del proyecto ${title}`}
+        />
+        <footer class="flex gap-x-4 mt-4 justify-end">
+          <LinkButton href={github}>
+            <GitHub class="size-6" />
+            Ver codigo fuente
+          </LinkButton>
+          <LinkButton href={link}>
+            <Web class="size-6" />
+            Ir al sitio web
+          </LinkButton>
+        </footer>
+      </article>
+    ))
+  }
+</section>

@@ -8,6 +8,8 @@ import Threejs from '../icons/Threejs.astro';
 import LinkButton from './LinkButton.astro';
 import GitHub from '@/icons/GitHub.astro';
 import Web from '@/icons/Web.astro';
+import TypeScript from '@/icons/TypeScript.astro';
+import SQLite from '@/icons/SQLite.astro';
 
 const TAGS = {
   NEXT: {
@@ -30,18 +32,42 @@ const TAGS = {
     class: 'bg-[#23272F] text-white',
     icon: React,
   },
+  REACTNATIVE: {
+    name: 'React-Native',
+    class: 'bg-[#23272F] text-white',
+    icon: React,
+  },
   JAVASCRIPT: {
     name: 'JavaScript',
     class: 'bg-[#000000] text-white',
     icon: JavaScript,
+  },
+  TYPESCRIPT: {
+    name: 'TypeScript',
+    class: 'bg-[#1D426A] text-white',
+    icon: TypeScript,
   },
   THREEJS: {
     name: 'Three.js',
     class: 'bg-[#0073B4] text-white',
     icon: Threejs,
   },
+  SQLITE: {
+    name: 'SQLite',
+    class: 'bg-[#23272F] text-white',
+    icon: SQLite,
+  },
 };
 const PROJECTS = [
+  {
+    title: 'App CheckList PlayStore',
+    description:
+      'Aplicación básica de CheckList que utiliza almacenamiento local en SQLite. No requiere conexión a internet para funcionar, no requiere permisos especiales, simplemente descargar y usar, la desarrolle para cubrir una necesidad de un familiar, algo sencillo de usar y sin anuncios molestos.',
+    link: 'https://play.google.com/store/apps/details?id=com.danielromeroag.appchecklist',
+    github: 'https://github.com/DanielTuttos/app-checkList',
+    image: '/projects/app-checklist.webp',
+    tags: [TAGS.REACTNATIVE, TAGS.TYPESCRIPT, TAGS.SQLITE],
+  },
   {
     title: 'TicTacToe',
     description:
@@ -63,7 +89,7 @@ const PROJECTS = [
 ];
 ---
 
-<section class='flex flex-col gap-y-14 mb-10'>
+<section class="flex flex-col gap-y-14 mb-10">
   {
     PROJECTS.map(({ title, description, tags, image, link, github }) => (
       <article>
